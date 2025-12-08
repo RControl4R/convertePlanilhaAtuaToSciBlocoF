@@ -1,5 +1,5 @@
-import pandas as pd
-import os 
+import pandas as pd # biblioteca para manipulação de dados excel 
+import os # usado para navegar pelos arquivos e pastas
 
 # Pastas de entrada/saída
 INPUT_FOLDER = "input/"
@@ -9,6 +9,8 @@ OUTPUT_FILE = "arquivo_formatado.csv"
 # Colunas que você deseja manter (por letra do Excel)
 LETTERS = ["H", "T", "V", "X", "Y", "AR", "BC", "BS", "BT", "BW"]
 
+# Função para converter letras de coluna do Excel para índice baseado em 0 
+# Essa função é usada para converter as letras das colunas do Excel para índices numéricos que podem ser usados para selecionar as colunas desejadas.
 def col_letter_to_index(col):
     """ Converte letra de coluna do Excel para índice baseado em 0 """
     idx = 0
