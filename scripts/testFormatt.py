@@ -1,5 +1,5 @@
-import pandas as pd #biblioteca para manipulação de dados excel 
-import os #biblioteca para navegar pelos arquivos e pastas
+import pandas as pd  # biblioteca para manipulação de dados excel 
+import os  # biblioteca para navegar pelos arquivos e pastas
 
 # Pastas de entrada/saída
 INPUT_FOLDER = "input/"
@@ -50,6 +50,7 @@ def formatar_data(valor):
         pass
 
     return valor
+
 
 # Função para processar o arquivo Excel
 def processar_arquivo():
@@ -110,6 +111,24 @@ def processar_arquivo():
     col_BC = df_final.columns[6]  # BC é a 7ª coluna selecionada
     df_final[col_BC] = df_final[col_BC].apply(lambda x: ''.join(filter(str.isdigit, str(x))))
 
+    # -----------------------------
+    # FORMATAR COLUNA BS (categoria -> código)
+    # -----------------------------
+    col_BS = df_final.columns[7]  # BS é a 8ª coluna selecionada
+
+    def converter_bs(valor):
+        valor = str(valor).strip().lower()
+
+        if "pessoa física" in valor:
+            return "7"
+        if "optante" in valor:  # Pessoa Jurídica - Optante p/ Simples
+            return "6"
+        if "não optante" in valor or "nao optante" in valor:
+            return "5"
+
+        return ""  # caso não reconheça a categoria
+
+    df_final[col_BS] = df_final[col_BS].apply(converter_bs)
 
     # Criar pasta de saída se não existir
     os.makedirs(OUTPUT_FOLDER, exist_ok=True)
