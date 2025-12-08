@@ -104,6 +104,13 @@ def processar_arquivo():
     col_V = df_final.columns[2]
     df_final[col_V] = df_final[col_V].astype(str).str.strip()
 
+    # -----------------------------
+    # FORMATAR COLUNA BC (somente números)
+    # -----------------------------
+    col_BC = df_final.columns[6]  # BC é a 7ª coluna selecionada
+    df_final[col_BC] = df_final[col_BC].apply(lambda x: ''.join(filter(str.isdigit, str(x))))
+
+
     # Criar pasta de saída se não existir
     os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
