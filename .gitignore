@@ -1,0 +1,12 @@
+# Ignorar arquivos Excel
+*.xls
+*.xlsx
+*.xlsm
+*.xlsb
+
+# Ignorar arquivos CSV
+*.csv
+
+# Pastas
+input/
+output/
