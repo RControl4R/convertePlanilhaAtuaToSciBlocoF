@@ -45,5 +45,23 @@ def processar_arquivo():
     # Filtrar DataFrame
     df_final = df[colunas_selecionadas]
 
+    # Formatar coluna H(Data) // passar para o formato dd/mm/yyyy (padrão SCI)
+    try:
+        col_H = df_final.columns[0]
+        df_final[col_H] = pd.to_datetime(df_final[col_H], errors="coerce").dt.strftime("%d/%m/%Y")
+    except Exception as e:
+        print(f"Erro ao formatar coluna H(Data): {e}")
+
+
+
     # Criar pasta de saída se não existir
-    os
+    os.makedirs(OUTPUT_FOLDER, exist_ok=True)
+
+    # Gerar CSV com delimitador ";"
+    output_path = os.path.join(OUTPUT_FOLDER, OUTPUT_FILE)
+    df_final.to_csv(output_path, sep=";", index=False, encoding="utf-8-sig")
+
+    print(f"Arquivo gerado com sucesso em: {output_path}")
+
+if __name__ == "__main__":
+    processar_arquivo()
