@@ -9,8 +9,8 @@ import csv
 # ================================
 # Pastas para entrada e saída
 # ================================
-INPUT_FOLDER = "input/"
-OUTPUT_FOLDER = "output/"
+INPUT_FOLDER = "../input/"
+OUTPUT_FOLDER = "../output/"
 
 # ================================
 # Converte letras de coluna (A, B, ..., AA) para índice numérico
