@@ -194,7 +194,7 @@ def processar_arquivo():
     # =======================
     # Coluna 14 - Produto col12*col13, formatado com float_to_custom
     # =======================
-    col14 = [float_to_custom(br_to_float(v) * float(m)/100) for v, m in zip(col12, col13)]
+    col14 = [float_to_custom(br_to_float(v) * float(m)) for v, m in zip(col12, col13)]
 
     # =======================
     # Coluna 15 - valor fixo "53"
@@ -219,7 +219,7 @@ def processar_arquivo():
     # =======================
     # Coluna 18 - Produto col16*col17, formatado com float_to_custom
     # =======================
-    col18 = [float_to_custom(br_to_float(v) * float(m)/100) for v, m in zip(col16, col17)]
+    col18 = [float_to_custom(br_to_float(v) * float(m)) for v, m in zip(col16, col17)]
 
     # =======================
     # Coluna 19 - valor fixo "14"
