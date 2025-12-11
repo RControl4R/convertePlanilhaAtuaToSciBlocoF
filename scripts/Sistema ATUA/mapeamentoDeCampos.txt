@@ -1,4 +1,4 @@
-Campo 01 - Verifica a coluna 'id_enquadramento_federal' do arquivo de entrada e faz uma condicional (7 - pessoa física || 6 - pj optante || 5 - pj não optante)
+Campo 01 - Verifica a coluna 'id_enquadramento_federal' do arquivo de entrada e faz uma condicional (pessoa física - 7 || pj optante - 6 || pj não optante - 5)
 
 Campo 02 - Valor fixo "0"
 
