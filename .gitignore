@@ -4,8 +4,9 @@
 *.xlsm
 *.xlsb
 
-# Ignorar arquivos CSV
+# Ignorar arquivos CSV || TXT
 *.csv
+*.txt
 
 # Pastas
 input/
