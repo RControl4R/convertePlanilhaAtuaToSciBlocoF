@@ -115,50 +115,50 @@ def processar_arquivo():
     df = pd.read_excel(arquivo_excel, dtype=str, header=None, keep_default_na=False, skiprows=2) #necessário para pular duas linhas de registro pois o arquivo vem com cabeçalho
 
     # Ajuste de índices
-    idx_H = col_letter_to_index("H")
-    idx_J = col_letter_to_index("J")
-    idx_V = col_letter_to_index("V")
-    idx_AR = col_letter_to_index("AR")
-    idx_BC = col_letter_to_index("BC")
+    idx_I = col_letter_to_index("I")
+    idx_K = col_letter_to_index("K")
+    idx_W = col_letter_to_index("W")
+    idx_AS = col_letter_to_index("AS")
     idx_BD = col_letter_to_index("BD")
-    idx_BS = col_letter_to_index("BS")
-    idx_BW = col_letter_to_index("BW") # valor fixo "SUBCONTRATAÇÃO DE FRETE " Var colBD + Fixo " N. CF " + Var colAR
+    idx_BE = col_letter_to_index("BE")
+    idx_BX = col_letter_to_index("BX") # Coluna enquadramento
+    idx_BW = col_letter_to_index("BW") # valor fixo "SUBCONTRATAÇÃO DE FRETE " Var colBE + Fixo " N. CF " + Var colAS
 
     # Campo 01
-    def converter_bs(valor):
+    def converter_bx(valor):
         valor = str(valor).strip().lower()
         if "pessoa física" in valor: return "7"
         if "não optante" in valor: return "5"
         if "optante" in valor: return "6"
         return ""
-    col1 = df[idx_BS].apply(converter_bs)
+    col1 = df[idx_BX].apply(converter_bx)
 
     # Campo 02
     col2 = "0"
 
     # Campo 03
-    col3 = df[idx_BC].apply(lambda x: ''.join(re.findall(r"\d", str(x))))
+    col3 = df[idx_BD].apply(lambda x: ''.join(re.findall(r"\d", str(x))))
 
     # Campo 04
     col4 = ""
 
     # Campo 05
-    col5 = df[idx_H].apply(formatar_data)
+    col5 = df[idx_I].apply(formatar_data)
 
     # Campo 06
-    col6 = df[idx_J].astype(str)
+    col6 = df[idx_K].astype(str)
 
     # Campo 07
     col7 = "p"
 
     # Campo 08
-    col8 = df[idx_V].astype(str).str.strip()
+    col8 = df[idx_W].astype(str).str.strip()
 
     # Campo 09
-    def calc_col9(bs):
-        if bs == "7": return "942"
-        if bs == "6": return "941"
-        if bs == "5": return "940"
+    def calc_col9(bx):
+        if bx == "7": return "942"
+        if bx == "6": return "941"
+        if bx == "5": return "940"
         return ""
     col9 = col1.apply(calc_col9)
 
@@ -172,8 +172,8 @@ def processar_arquivo():
     col12 = col8 # valor original
 
     # Campo 13
-    def calc_col13(bs):
-        if bs == "5": return 1.65
+    def calc_col13(bx):
+        if bx == "5": return 1.65
         return 1.2375
     col13 = col1.apply(calc_col13)
 
@@ -192,8 +192,8 @@ def processar_arquivo():
     col16 = col8
 
     # Campo 17
-    def calc_col17(bs):
-        if bs == "5": return 7.60
+    def calc_col17(bx):
+        if bx == "5": return 7.60
         return 5.70
     col17 = col1.apply(calc_col17)
 
@@ -214,9 +214,9 @@ def processar_arquivo():
     # Campo 21
     col21 = (
         "SUBCONTRATAÇÃO DE FRETE " 
-        + df[idx_BD].astype(str)
+        + df[idx_BE].astype(str)
         + " N. CF "
-        + df[idx_AR].astype(str)
+        + df[idx_AS].astype(str)
     )
 
     # Colunas 22–54 vazias, exceto col 54 = col9
