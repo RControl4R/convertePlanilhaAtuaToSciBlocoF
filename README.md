@@ -26,7 +26,7 @@ Deverá escolher o arquivo origem e esperar que seja gerado o arquivo convertido
 <img width="690" height="719" alt="atuaToSciSelectFile2" src="https://github.com/user-attachments/assets/d541621e-da74-41ee-b918-223a021d3e13" />
 
 
-## Saída
+## Entrada / Saída
 
 <img width="1905" height="280" alt="atuaToSciExemploEntrada" src="https://github.com/user-attachments/assets/dca387c5-c557-4144-8ac3-aa4335ee86c2" />
 
