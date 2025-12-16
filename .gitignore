@@ -8,6 +8,10 @@
 *.csv
 *.txt
 
+.spec
+
 # Pastas
 input/
 output/
+build/
+dist/
