@@ -8,7 +8,7 @@
 *.csv
 *.txt
 
-.spec
+*.spec
 
 # Pastas
 input/
