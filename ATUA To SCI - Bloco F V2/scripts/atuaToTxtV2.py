@@ -260,7 +260,7 @@ def processar_arquivo(caminho_excel=None):
 
     pasta_saida = os.path.dirname(arquivo_excel)
     nome_base = os.path.splitext(os.path.basename(arquivo_excel))[0]
-    output_path = os.path.join(pasta_saida, f"{nome_base}_formatado.txt")
+    output_path = os.path.join(pasta_saida, f"{nome_base}_SCI.txt")
 
 
     df_final.to_csv(output_path, sep=",", index=False, header=False,

@@ -5,12 +5,17 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from atuaToTxtV2 import processar_arquivo
+import os
 
 def selecionar_arquivo():
     while True:
         arquivo = filedialog.askopenfilename(
             title="Selecione o arquivo Excel",
-            filetypes=[("Arquivos Excel", "*.xls *.xlsx")]
+            initialdir=os.path.expanduser("~"),
+            filetypes=[
+                ("Arquivos Excel (*.xls;*.xlsx)", "*.xls;*.xlsx"),
+                ("Todos os arquivos", "*.*")    
+            ]
         )
 
         if not arquivo:
