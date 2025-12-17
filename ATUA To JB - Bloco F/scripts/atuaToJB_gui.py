@@ -8,7 +8,7 @@ import os
 
 from atuaToJb import processar_arquivo
 
-VERSAO = "2.0"
+VERSAO = "1.0"
 
 
 def selecionar_arquivo():
