@@ -8,10 +8,12 @@
 *.csv
 *.txt
 
-.spec
+*.spec
+*.seq
 
 # Pastas
 input/
 output/
 build/
 dist/
+__pycache__/
