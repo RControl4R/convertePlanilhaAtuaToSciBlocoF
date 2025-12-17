@@ -5,51 +5,59 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import os
-import sys
 
-# Importa a função principal do script atuaToJb.py
 from atuaToJb import processar_arquivo
+
+VERSAO = "2.0"
 
 
 def selecionar_arquivo():
-    while True:
-        arquivo = filedialog.askopenfilename(
-            title="Selecione o arquivo ATUA (.seq)",
-            filetypes=[("Arquivos SEQ", "*.seq"), ("Arquivos Texto", "*.txt")]
+    arquivo = filedialog.askopenfilename(
+        title="Selecione o arquivo ATUA (.seq)",
+        filetypes=[("Arquivos SEQ", "*.seq"), ("Arquivos Texto", "*.txt")]
+    )
+
+    if not arquivo:
+        return
+
+    try:
+        # Interface em modo processamento
+        botao.config(state="disabled")
+        status_label.config(text="Processando arquivo, aguarde...")
+        janela.update_idletasks()
+
+        processar_arquivo(arquivo)
+
+        status_label.config(text="Processamento concluído com sucesso!")
+
+        resposta = messagebox.askyesno(
+            "Conversão concluída",
+            "Arquivo processado com sucesso!\n\n"
+            "Deseja converter outro arquivo?"
         )
 
-        if not arquivo:
-            # Usuário cancelou a seleção
-            return
+        # Se NÃO, apenas volta para a tela inicial
+        if not resposta:
+            status_label.config(text="Pronto para nova conversão.")
 
-        try:
-            processar_arquivo(arquivo)
+    except Exception as e:
+        messagebox.showerror(
+            "Erro",
+            f"Ocorreu um erro ao processar o arquivo:\n\n{str(e)}"
+        )
+        status_label.config(text="Erro ao processar arquivo.")
 
-            resposta = messagebox.askyesno(
-                "Conversão concluída",
-                "Arquivo processado com sucesso!\n\n"
-                "Deseja converter outro arquivo?"
-            )
-
-            if not resposta:
-                return
-
-            # Se respondeu SIM, o loop continua
-
-        except Exception as e:
-            messagebox.showerror(
-                "Erro",
-                f"Ocorreu um erro ao processar o arquivo:\n\n{str(e)}"
-            )
-            return
+    finally:
+        botao.config(state="normal")
 
 
 # -----------------------------
 # Janela principal
 # -----------------------------
+
 janela = tk.Tk()
 janela.title("ATUA → JB")
-janela.geometry("460x200")
+janela.geometry("460x220")
 janela.resizable(False, False)
 
 label = tk.Label(
@@ -59,7 +67,7 @@ label = tk.Label(
     font=("Arial", 11),
     justify="center"
 )
-label.pack(pady=25)
+label.pack(pady=20)
 
 botao = tk.Button(
     janela,
@@ -69,14 +77,22 @@ botao = tk.Button(
     height=2,
     command=selecionar_arquivo
 )
-botao.pack(pady=10)
+botao.pack(pady=5)
+
+status_label = tk.Label(
+    janela,
+    text="Pronto para nova conversão.",
+    font=("Arial", 9),
+    fg="blue"
+)
+status_label.pack(pady=8)
 
 rodape = tk.Label(
     janela,
-    text="Versão 1.0",
+    text=f"Versão {VERSAO}",
     font=("Arial", 9),
     fg="gray"
 )
-rodape.pack(side="bottom", pady=8)
+rodape.pack(side="bottom", pady=6)
 
 janela.mainloop()
