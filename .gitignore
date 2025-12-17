@@ -9,11 +9,17 @@
 *.txt
 
 *.spec
+<<<<<<< HEAD
 *.seq
+=======
+>>>>>>> 3cd3f0cebc4ff4a13a1a22b1d18261b3163eea74
 
 # Pastas
 input/
 output/
 build/
 dist/
+<<<<<<< HEAD
 __pycache__/
+=======
+>>>>>>> 3cd3f0cebc4ff4a13a1a22b1d18261b3163eea74
