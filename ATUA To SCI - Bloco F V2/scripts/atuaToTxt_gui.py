@@ -7,14 +7,16 @@ from tkinter import filedialog, messagebox
 from atuaToTxtV2 import processar_arquivo
 import os
 
+VERSAO = "1.3"
+
 def selecionar_arquivo():
     while True:
         arquivo = filedialog.askopenfilename(
             title="Selecione o arquivo Excel",
             initialdir=os.path.expanduser("~"),
             filetypes=[
-                ("Arquivos Excel (*.xls;*.xlsx)", "*.xls;*.xlsx"),
-                ("Todos os arquivos", "*.*")    
+                ("Todos os arquivos", "*.*"),
+                ("Arquivos Excel (*.xls;*.xlsx)", "*.xls;*.xlsx")                    
             ]
         )
 
@@ -30,7 +32,6 @@ def selecionar_arquivo():
             )
 
             if not resposta:
-                janela.destroy()
                 return
 
         except Exception as e:
@@ -69,7 +70,7 @@ btn.pack(expand=True)
 
 rodape = tk.Label(
     janela,
-    text="Versão 1.04",
+    text=f"Versão {VERSAO}",
     font=("Arial", 9),
     fg="gray"
 )
