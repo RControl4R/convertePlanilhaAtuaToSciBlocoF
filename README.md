@@ -14,10 +14,10 @@ Movimentações contábeis que devem ser importadas no novo sistema (SCI) veem f
 ## Exemplos de Uso
 
 Para usar o programa : 
-- Rodar o executável: O usuário pode rodar o programa executável disponibilizado na sua pasta da rede. 
-Deverá escolher o arquivo origem e esperar que seja gerado o arquivo convertido.
+- O usuário pode rodar o programa executável que está disponibilizado na pasta de rede. 
+Deve-se escolher o arquivo origem e esperar que seja gerado o arquivo convertido.
 
-- O arquivo de entrada deve estar no padrão exato em que foi extraído do sistema origem, não deve ser formatado.
+- O arquivo de entrada deve estar no padrão exato em que foi extraído do sistema origem, não deve ser formatado ou alterado.
 
 <img width="497" height="236" alt="atuaToSciExe" src="https://github.com/user-attachments/assets/1bf84ebd-6f31-47ea-a0fd-d0114820c6ea" />
 
