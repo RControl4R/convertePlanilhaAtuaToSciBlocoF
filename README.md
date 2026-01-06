@@ -19,8 +19,8 @@ Deve-se escolher o arquivo origem (xls/xlsx) e esperar que seja gerado o arquivo
 O arquivo é gerado na mesma pasta do arquivo de origem, com o mesmo nome do arquivo +_SCI
 
 Ex: 
-Entrada - arquivo102025.xlsx
-Saída - arquivo102025_SCI.txt
+- Entrada - arquivo102025.xlsx
+- Saída - arquivo102025_SCI.txt
 
 - O arquivo de entrada deve estar no padrão exato em que foi extraído do sistema origem, não deve ser formatado ou alterado.
 
