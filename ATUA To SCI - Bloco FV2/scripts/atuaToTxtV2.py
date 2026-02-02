@@ -141,9 +141,9 @@ def processar_arquivo(caminho_excel=None):
     # Campo 01
     def converter_bx(valor):
         valor = str(valor).strip().lower()
-        if "pessoa física" in valor: return "7"
-        if "não optante" in valor: return "5"
-        if "optante" in valor: return "6"
+        if "pessoa física" in valor: return "24"
+        if "não optante" in valor: return "22"
+        if "optante" in valor: return "23"
         return ""
     col1 = df[idx_BX].apply(converter_bx)
 
