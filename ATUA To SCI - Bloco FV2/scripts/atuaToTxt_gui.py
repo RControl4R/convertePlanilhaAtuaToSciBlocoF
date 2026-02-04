@@ -7,7 +7,7 @@ from tkinter import filedialog, messagebox
 from atuaToTxtV2 import processar_arquivo
 import os
 
-VERSAO = "1.3"
+VERSAO = "1.4"
 
 def selecionar_arquivo():
     while True:

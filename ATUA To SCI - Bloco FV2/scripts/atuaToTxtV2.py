@@ -170,14 +170,14 @@ def processar_arquivo(caminho_excel=None):
 
     # Campo 09
     def calc_col9(bx):
-        if bx == "7": return "942"
-        if bx == "6": return "941"
-        if bx == "5": return "940"
+        if bx == "24": return "942"
+        if bx == "23": return "941"
+        if bx == "22": return "940"
         return ""
     col9 = col1.apply(calc_col9)
-
+    
     # Campo 10
-    col10 = "815"
+    col10 = ""
 
     # Campo 11 
     col11 = "53"
@@ -238,6 +238,12 @@ def processar_arquivo(caminho_excel=None):
     
     # Campo 54 - conta
     extras[54] = col9
+
+    # Atualiza campo 09
+    col9 = ""
+    
+
+
 
     colunas_com_aspas = [2,3,4,5,6,7,8,9,10,11,15,19,21]
 
