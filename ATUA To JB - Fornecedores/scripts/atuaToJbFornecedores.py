@@ -36,6 +36,23 @@ def colocar_aspas(valor):
     return f"\"{valor}\""
 
 # ================================
+# Verifica se o valor é ISENTO
+# ================================
+def tratar_campo04(valor):
+    valor_str = str(valor).strip()
+
+    if valor_str == "":
+        return "ISENTO"
+
+    numeros = re.findall(r"\d", valor_str)
+
+    if numeros:
+        return ''.join(numeros)
+
+    return "ISENTO"
+
+
+# ================================
 # Processamento do arquivo Excel
 # ================================
 def processar_arquivo(caminho_excel=None):
@@ -92,7 +109,7 @@ def processar_arquivo(caminho_excel=None):
     col1  = df[idx_A]
     col2  = df[idx_B]
     col3  = df[idx_R].apply(somente_numeros)
-    col4  = df[idx_C] #VERIFICAR SE É DIFERENTE DE ISENTO E FAZER A LOGICA PARA ISENTO
+    col4  = df[idx_C].apply(tratar_campo04)
     col5  = df[idx_X]
     col6  = ""
     col7  = "F"
