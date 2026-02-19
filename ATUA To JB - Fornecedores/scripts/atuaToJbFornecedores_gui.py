@@ -3,7 +3,7 @@ from tkinter import filedialog, messagebox
 from atuaToJbFornecedores import processar_arquivo
 import os
 
-VERSAO = "1.0"
+VERSAO = "1.2"
 
 def selecionar_arquivo():
     while True:
@@ -37,13 +37,13 @@ def selecionar_arquivo():
             return
 
 janela = tk.Tk()
-janela.title("Conversor ATUA → JB")
+janela.title("Conversor ATUA → JB | Fornecedores")
 janela.geometry("460x200")
 janela.resizable(False, False)
 
 label = tk.Label(
     janela,
-    text="Conversão XLS/XLSX → TXT\n\nSelecione o arquivo de origem",
+    text="Conversão ATUA → JB\n\nSelecione o arquivo de origem\nTipo: XLSX, XLS",
     font=("Arial", 11),
     justify="center"
 )
@@ -51,7 +51,7 @@ label.pack(pady=25)
 
 btn = tk.Button(
     janela,
-    text="Selecionar arquivo Excel",
+    text="Selecionar arquivo",
     command=selecionar_arquivo,
     font=("Arial", 11),
     width=30,
